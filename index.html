@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>燈光翻轉 — 12 盞燈</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <h1>燈光翻轉 — 自訂題目</h1>
+    <p class="hint">設定題目後按「確認出題」可顯示 3 步解法（每次點擊會翻轉該盞與左右相鄰，頭尾相接）。</p>
+
+    <div class="clocks-row">
+    <!-- 時鐘一：預設全暗，點擊點亮 -->
+    <section class="clock-section" id="section-dark" aria-labelledby="title-dark">
+      <h2 id="title-dark" class="clock-title">全暗 → 點擊點亮</h2>
+      <p class="clock-hint">從全暗開始，點擊要點亮的燈。</p>
+      <div class="ring" id="ring-dark" role="group" aria-label="全暗時鐘 12 盞燈"></div>
+      <div class="actions">
+        <button type="button" class="btn btn-primary btn-confirm" data-clock="dark">確認出題並顯示解法</button>
+        <button type="button" class="btn btn-reset" data-clock="dark">重新出題</button>
+      </div>
+      <div class="solution-area solution-box" id="solution-dark" aria-live="polite" hidden></div>
+    </section>
+
+    <!-- 時鐘二：預設全亮，點擊點暗 -->
+    <section class="clock-section" id="section-bright" aria-labelledby="title-bright">
+      <h2 id="title-bright" class="clock-title">全亮 → 點擊點暗</h2>
+      <p class="clock-hint">從全亮開始，點擊要點暗的燈。</p>
+      <div class="ring" id="ring-bright" role="group" aria-label="全亮時鐘 12 盞燈"></div>
+      <div class="actions">
+        <button type="button" class="btn btn-primary btn-confirm" data-clock="bright">確認出題並顯示解法</button>
+        <button type="button" class="btn btn-reset" data-clock="bright">重新出題</button>
+      </div>
+      <div class="solution-area solution-box" id="solution-bright" aria-live="polite" hidden></div>
+    </section>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+  <script src="ui.js"></script>
+</body>
+</html>
